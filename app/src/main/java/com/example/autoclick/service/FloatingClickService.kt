@@ -12,9 +12,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import com.example.autoclick.R
-import com.example.autoclick.TouchAndDragListener
-import com.example.autoclick.dp2px
-import com.example.autoclick.logd
+import com.example.autoclick.listeners.TouchAndDragListener
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
 
@@ -35,7 +33,7 @@ class FloatingClickService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        startDragDistance = dp2px(10f)
+        startDragDistance = 100
         view = LayoutInflater.from(this).inflate(R.layout.widget, null)
 
         //setting the layout parameters
@@ -88,14 +86,12 @@ class FloatingClickService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
-        "FloatingClickService onDestroy".logd()
         timer?.cancel()
         manager.removeView(view)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        "FloatingClickService onConfigurationChanged".logd()
         val x = params.x
         val y = params.y
         params.x = xForRecord

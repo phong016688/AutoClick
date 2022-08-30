@@ -1,4 +1,4 @@
-package com.example.autoclick
+package com.example.autoclick.listeners
 
 import android.annotation.SuppressLint
 import android.view.MotionEvent
@@ -7,8 +7,8 @@ import android.view.WindowManager
 
 class TouchAndDragListener(private val params: WindowManager.LayoutParams,
                            private val startDragDistance: Int = 10,
-                           private val onTouch: Action?,
-                           private val onDrag: Action?) : View.OnTouchListener {
+                           private val onTouch: (()->Unit)?,
+                           private val onDrag: (()->Unit)?) : View.OnTouchListener {
     private var initialX: Int = 0
     private var initialY: Int = 0
     private var initialTouchX: Float = 0.toFloat()

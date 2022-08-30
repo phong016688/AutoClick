@@ -7,22 +7,23 @@ import android.content.Intent
 import android.graphics.Path
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.accessibility.AccessibilityEvent
-import com.example.autoclick.MainActivity
+import com.example.autoclick.view.home.MainActivity
 import com.example.autoclick.bean.Event
-import com.example.autoclick.logd
 
 
 class AutoClickService : AccessibilityService() {
+    private val TAG = "#####" + this::class.java.simpleName
 
     private val events = mutableListOf<Event>()
 
     override fun onInterrupt() {
-        // NO-OP
+        Log.d(TAG, "onInterrupt: ")
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
-        // NO-OP
+        Log.d(TAG, "onAccessibilityEvent: $event")
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -46,10 +47,9 @@ class AutoClickService : AccessibilityService() {
 
     override fun onServiceConnected() {
         super.onServiceConnected()
-        "onServiceConnected".logd()
+        Log.d(TAG, "onServiceConnected: ")
         startActivity(
-            Intent(this, MainActivity::class.java)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         )
     }
 
@@ -64,7 +64,6 @@ class AutoClickService : AccessibilityService() {
     }
 
     private fun click(x: Int, y: Int) {
-        "click $x $y".logd("#### x/y ")
         val path = Path()
         path.moveTo(x.toFloat(), y.toFloat())
         val builder = GestureDescription.Builder()
@@ -77,12 +76,10 @@ class AutoClickService : AccessibilityService() {
     private fun dispatchGesture(gestureDescription: GestureDescription) {
         dispatchGesture(gestureDescription, object : AccessibilityService.GestureResultCallback() {
             override fun onCompleted(gestureDescription: GestureDescription?) {
-                gestureDescription?.logd("############### complete: ")
                 super.onCompleted(gestureDescription)
             }
 
             override fun onCancelled(gestureDescription: GestureDescription?) {
-                gestureDescription?.logd("############### onCancelled: ")
                 super.onCancelled(gestureDescription)
             }
         }, Handler(Looper.getMainLooper()))
@@ -91,20 +88,17 @@ class AutoClickService : AccessibilityService() {
     private fun run(newEvents: MutableList<Event>) {
         events.clear()
         events.addAll(newEvents)
-        events.toString().logd()
         val builder = GestureDescription.Builder()
         events.forEach { builder.addStroke(it.onEvent()) }
         dispatchGesture(builder.build(), null, null)
     }
 
     override fun onUnbind(intent: Intent?): Boolean {
-        "AutoClickService onUnbind".logd()
         return super.onUnbind(intent)
     }
 
 
     override fun onDestroy() {
-        "AutoClickService onDestroy".logd()
         super.onDestroy()
     }
 
