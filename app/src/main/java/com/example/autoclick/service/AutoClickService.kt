@@ -4,18 +4,23 @@ import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.GestureDescription
 import android.app.Service
 import android.content.Intent
+import android.content.pm.ServiceInfo
 import android.graphics.Path
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
-import com.example.autoclick.view.home.MainActivity
+import androidx.core.app.NotificationCompat
+import com.example.autoclick.R
+import com.example.autoclick.view.home.HomeActivity
 import com.example.autoclick.bean.Event
+import com.example.autoclick.service.manager.AppNotificationManager
+import com.example.autoclick.service.manager.AppNotificationManager.Companion.NOTIFICATION_ID
 
 
 class AutoClickService : AccessibilityService() {
     private val TAG = "#####" + this::class.java.simpleName
-
     private val events = mutableListOf<Event>()
 
     override fun onInterrupt() {
@@ -49,7 +54,7 @@ class AutoClickService : AccessibilityService() {
         super.onServiceConnected()
         Log.d(TAG, "onServiceConnected: ")
         startActivity(
-            Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            Intent(this, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         )
     }
 
@@ -97,10 +102,6 @@ class AutoClickService : AccessibilityService() {
         return super.onUnbind(intent)
     }
 
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
 
     companion object {
         const val CLICK = "CLICK"

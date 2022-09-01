@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.autoclick">
 
+    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +15,7 @@
         android:theme="@style/Theme.AutoClick"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".view.home.MainActivity"
+            android:name=".view.home.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,10 +39,11 @@
         </service>
 
         <service
-            android:name=".service.FloatingClickService"
+            android:name="com.example.autoclick.service.FloatingClickService"
             android:configChanges="orientation"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
 
     </application>
 

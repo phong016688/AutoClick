@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_baseline_directions_bike_24.xml" value="0.169" />
+        <entry key="app/src/main/res/drawable/ic_baseline_stop_24.xml" value="0.169" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
       </map>
     </option>

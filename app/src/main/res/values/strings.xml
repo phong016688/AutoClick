@@ -3,4 +3,10 @@
     <string name="accessibility_service_description">TODO</string>
     <string name="accessibility_service_name">AutoClickService</string>
     <string name="accessibility_service_id">com.example.autoclick/com.example.autoclick.service.AutoClickService</string>
+
+    <string name="notification_tracking_channel_id" translatable="false">tracking_channel</string>
+    <string name="notification_tracking_channel_name" translatable="false">Tracking</string>
+    <string name="notification_tracking_channel_description" translatable="false">Tracking channel</string>
+
+    <string name="home_stop">STOP</string>
 </resources>
