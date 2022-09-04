@@ -6,6 +6,8 @@
         <entry key="app/src/main/res/drawable/ic_baseline_directions_bike_24.xml" value="0.169" />
         <entry key="app/src/main/res/drawable/ic_baseline_stop_24.xml" value="0.169" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/widget.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/widget1.xml" value="0.23697916666666666" />
       </map>
     </option>
   </component>

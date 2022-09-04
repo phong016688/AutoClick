@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.autoclick.databinding.ActivityHomeBinding
 import com.example.autoclick.service.AutoClickService
@@ -33,18 +32,16 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(intent)
             } else {
                 startClickService()
-                val launchIntent = packageManager.getLaunchIntentForPackage("com.google.android.gm")
-                if (launchIntent != null) {
-                    startActivity(launchIntent)
-                } else {
-                    Toast.makeText(
-                        this,
-                        "There is no Gmail App available in android",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
+                backToHomeScreen()
             }
         }
+    }
+
+    private fun backToHomeScreen() {
+        val startMain = Intent(Intent.ACTION_MAIN)
+        startMain.addCategory(Intent.CATEGORY_HOME)
+        startMain.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(startMain)
     }
 
     private fun startClickService() {

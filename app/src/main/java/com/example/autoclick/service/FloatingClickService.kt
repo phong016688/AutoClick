@@ -9,7 +9,10 @@ import android.graphics.Color
 import android.graphics.PixelFormat
 import android.graphics.PixelFormat.OPAQUE
 import android.os.Build
+import android.os.Handler
 import android.os.IBinder
+import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,10 +45,10 @@ class FloatingClickService : Service() {
 
         //setting the layout parameters
         val overlayParam = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
-            } else {
-                WindowManager.LayoutParams.TYPE_PHONE
-            }
+            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
+        } else {
+            WindowManager.LayoutParams.TYPE_PHONE
+        }
         params = WindowManager.LayoutParams(
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT,
@@ -69,6 +72,18 @@ class FloatingClickService : Service() {
                 { manager.updateViewLayout(view, params) }
             )
         )
+        Handler(Looper.getMainLooper()).postDelayed({
+            startEmail()
+        }, 5000)
+    }
+
+    private fun startEmail() {
+        val intentClick = Intent(this, AutoClickService::class.java).apply {
+            action = AutoClickService.CLICK
+            putExtra("x", 750)
+            putExtra("y", 1750)
+        }
+        startService(intentClick)
     }
 
     private var isOn = false
