@@ -9,4 +9,13 @@
     <string name="notification_tracking_channel_description" translatable="false">Tracking channel</string>
 
     <string name="home_stop">STOP</string>
+    <string name="setting">Setting</string>
+    <string name="enter_key">Enter Key</string>
+    <string name="go_to_home">Go To Home</string>
+    <string name="go_to_history">Go To History</string>
+    <string name="go_to_about">Go To About</string>
+    <string name="go_to_profile">Go To Profile</string>
+    <string name="open_in_map">Open in map</string>
+    <string name="divisions_assigned_to_thisvenue">Divisions assigned to thisvenue</string>
+    <string name="map_view">Map view</string>
 </resources>

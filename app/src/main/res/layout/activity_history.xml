@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/l_venues_ctn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_65">
+
+    <FrameLayout
+        android:id="@+id/l_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_venues"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingVertical="@dimen/dp_12" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_show_map"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_50"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:backgroundTint="@color/black"
+            android:elevation="@dimen/dp_4"
+            app:cardCornerRadius="@dimen/dp_30">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_25"
+                android:drawablePadding="@dimen/dp_10"
+                android:text="@string/map_view"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

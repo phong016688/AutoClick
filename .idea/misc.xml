@@ -3,9 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/background_white10_radius_10.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_directions_bike_24.xml" value="0.169" />
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.244" />
         <entry key="app/src/main/res/drawable/ic_baseline_stop_24.xml" value="0.169" />
+        <entry key="app/src/main/res/layout/activity_history.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_setting.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/dialog_basic.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/item_manager_profile.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/item_venues.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/layout_header.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/widget.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/widget1.xml" value="0.23697916666666666" />
       </map>

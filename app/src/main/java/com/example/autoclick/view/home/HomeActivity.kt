@@ -49,10 +49,6 @@ class HomeActivity : AppCompatActivity() {
         startService(serviceIntent)
     }
 
-    override fun onBackPressed() {
-        moveTaskToBack(true)
-    }
-
     override fun onDestroy() {
         stopService(Intent(this, FloatingClickService::class.java))
         stopService(Intent(this, AutoClickService::class.java))
